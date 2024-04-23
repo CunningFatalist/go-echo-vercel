@@ -2,6 +2,10 @@
 
 This is a simple example on how to deploy a Go Echo application to Vercel.
 
+Why? Other examples on GitHub don't solve the problem of serving static assets, this one does.
+
+I tried to keep it as simple as possible, as I don't want to force Docker or Make files on you.
+
 ## Prerequisites
 
 - [Vercel CLI](https://vercel.com/docs/cli)

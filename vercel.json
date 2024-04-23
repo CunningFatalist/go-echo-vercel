@@ -1,6 +1,10 @@
 {
   "routes": [
     {
+      "src": "/(.*).(png|jpg|svg|webp|ico|css|js|mjs|woff|woff2|ttf|eot|pdf|mp4|webm|ogg|mp3|wav)",
+      "dest": "/public/$1.$2"
+    },
+    {
       "src": "/.*",
       "dest": "/api/index.go"
     }
@@ -11,3 +15,4 @@
     }
   }
 }
+

@@ -2,17 +2,24 @@ package handler
 
 import (
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"net/http"
 )
 
+// e is the echo server
 var e *echo.Echo
 
 // init is called before the main function and sets up the echo server
 func init() {
 	e = echo.New()
 
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
+	// This only works in combination with the `vercel.json` routes.
+	e.Use(middleware.Static("public"))
+
 	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World!")
+		return c.HTML(http.StatusOK, "<p>Hello, World!</p><p><img src='/example.png' alt='a blue square' /></p>")
 	})
 
 	e.GET("/health", func(c echo.Context) error {
